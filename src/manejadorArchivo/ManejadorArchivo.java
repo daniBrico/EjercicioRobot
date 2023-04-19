@@ -42,9 +42,11 @@ public class ManejadorArchivo {
 	
 	public Tablero getTablero() {
 		String datosEntrada = this.informacionArchivo[0];
-		char datosJuego[] = datosEntrada.toCharArray();
+		String informacionEntrada[];
 		
-		Tablero tablero = new Tablero(Character.getNumericValue(datosJuego[3]), Character.getNumericValue(datosJuego[4]));
+		informacionEntrada = datosEntrada.split(" ");
+		
+		Tablero tablero = new Tablero(Integer.parseInt(informacionEntrada[3]), Integer.parseInt(informacionEntrada[4]));
 		
 		return(tablero);
 	}

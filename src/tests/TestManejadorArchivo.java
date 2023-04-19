@@ -22,10 +22,6 @@ public class TestManejadorArchivo {
 		Tablero tableroEsperado = new Tablero(10, 5);
 		Tablero tableroObtenido = manejadorArchivo.getTablero();
 		
-		tableroEsperado.getInformacion();
-		System.out.println();
-		tableroObtenido.getInformacion();
-		
 		Assert.assertEquals(tableroEsperado, tableroObtenido);
 	}
 	
