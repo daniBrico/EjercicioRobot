@@ -24,6 +24,12 @@ public class Robot {
 		System.out.println(this.posicionX + " " + this.posicionY + " " + this.cardinalidad);
 	}
 	
+	public void moverEnX(int cantidadPosiciones) {
+	}
+	
+	public void moverEnY() {
+	}
+	
 	@Override
 	public boolean equals(Object object) {
 		Robot robot = (Robot)object;

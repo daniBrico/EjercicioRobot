@@ -17,9 +17,36 @@ public class Tablero {
 		return(this.numeroFilas);
 	}
 	
-	public void getInformacion() {
-		System.out.println("C F");
-		System.out.println(this.numeroColumnas + " " + this.numeroFilas);
+	public boolean fueraDeRango(int posicionX, int posicionY, char orientacionActual, int moverCantCasilleros) {
+		boolean fueraDeRango=true;
+		
+		switch(orientacionActual) {
+			case 'N':{
+				if((posicionY+moverCantCasilleros) > this.numeroFilas) {
+					fueraDeRango=false;
+				}
+			}break;
+			
+			case 'S':{
+				if((posicionY-moverCantCasilleros) < 1) {
+					fueraDeRango=false;
+				}
+			}break;
+			
+			case 'E':{
+				if((posicionX+moverCantCasilleros) > this.numeroColumnas) {
+					fueraDeRango=false;
+				}
+			}break;
+			
+			case 'O':{
+				if((posicionX-moverCantCasilleros) < 1) {
+					fueraDeRango=false;
+				}
+			}break;
+		}
+		
+		return(fueraDeRango);
 	}
 	
 	@Override
@@ -28,4 +55,9 @@ public class Tablero {
 		
 		return ((this.getNumeroColumnas() == tablero.getNumeroColumnas()) && (this.getNumeroFilas() == tablero.getNumeroFilas()));
 	}
+	
+//	public void getInformacion() {
+//		System.out.println("C F");
+//		System.out.println(this.numeroColumnas + " " + this.numeroFilas);
+//	}
 }
