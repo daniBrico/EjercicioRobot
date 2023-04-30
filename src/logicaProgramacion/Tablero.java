@@ -18,30 +18,29 @@ public class Tablero {
 	}
 	
 	public boolean fueraDeRango(int posicionX, int posicionY, char orientacionActual, int moverCantCasilleros) {
-		boolean fueraDeRango=true;
-		
+		boolean fueraDeRango=false;
 		switch(orientacionActual) {
 			case 'N':{
 				if((posicionY+moverCantCasilleros) > this.numeroFilas) {
-					fueraDeRango=false;
+					fueraDeRango=true;
 				}
 			}break;
 			
 			case 'S':{
 				if((posicionY-moverCantCasilleros) < 1) {
-					fueraDeRango=false;
+					fueraDeRango=true;
 				}
 			}break;
 			
 			case 'E':{
 				if((posicionX+moverCantCasilleros) > this.numeroColumnas) {
-					fueraDeRango=false;
+					fueraDeRango=true;
 				}
 			}break;
 			
 			case 'O':{
 				if((posicionX-moverCantCasilleros) < 1) {
-					fueraDeRango=false;
+					fueraDeRango=true;
 				}
 			}break;
 		}
