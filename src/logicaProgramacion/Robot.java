@@ -82,33 +82,21 @@ public class Robot {
 	
 	public void rotarRobot(int valorRotacion) {
 		char puntosCardinales[] = {'N', 'E', 'S', 'O'};
-		int i=0;
-		int rotacion = valorRotacion%4;
 		
 		switch(this.cardinalidad) {
-			case 'N':{
-				i=0;
-			}break;
-			
 			case 'E':{
-				i=1;
+				valorRotacion+=1;
 			}break;
 			
 			case 'S':{
-				i=2;
+				valorRotacion+=2;
 			}break;
 			
 			case 'O':{
-				i=3;
+				valorRotacion=3;
 			}break;
 		}
-		
-		while(rotacion > 0) {
-			i++;
-			rotacion--;
-		}
-		
-		this.cardinalidad = puntosCardinales[i];
+		this.cardinalidad = puntosCardinales[valorRotacion%4];
 	}
 	
 	@Override

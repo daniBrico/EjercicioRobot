@@ -7,23 +7,29 @@ public class Juego {
 	Robot robot;
 	char listaComandos[];
 	
-	public Juego() {}
-	
-	public void comenzarJuego() {
+	public Juego() {
 		ManejadorArchivo manejadorArchivo = new ManejadorArchivo();
+		manejadorArchivo.leerArchivo();
+		
 		this.tablero = manejadorArchivo.getTablero();
 		this.robot = manejadorArchivo.getRobot();
 		this.listaComandos = manejadorArchivo.getListaComandos();
 	}
 	
-	// Este constructor permite que funcione el test del métood calcularPosicionFinal();
+	public void comenzarJuego() {
+		this.calcularPosicionFinal();
+		ManejadorArchivo manejadorArchivo = new ManejadorArchivo();
+		manejadorArchivo.escribirArchivo(this.robot.getPosicionX(), this.robot.getPosicionY());
+	}
+	
+	// Este constructor permite que funcione el test del método calcularPosicionFinal();
 	public Juego(Tablero tablero, Robot robot, char listaComandos[]) {
 		this.tablero = tablero;
 		this.robot = robot;
 		this.listaComandos = listaComandos;
 	}
 	
-	// Al ejecutarse este objeto, se obtiene la posición final del robot
+	// Al ejecutarse este método, se obtiene la posición final del robot
 	public void calcularPosicionFinal() {
 		for(int i=0;i<this.listaComandos.length;i+=2) {
 			if(this.listaComandos[i] == 'A') {
@@ -42,7 +48,7 @@ public class Juego {
 				}
 			}else {
 				if(this.listaComandos[i] == 'R') {
-					robot.rotarRobot((int)this.listaComandos[i+1]);
+					robot.rotarRobot(Character.getNumericValue(this.listaComandos[i+1]));
 				}
 			}
 		}

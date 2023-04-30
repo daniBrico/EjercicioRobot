@@ -2,7 +2,8 @@ package manejadorArchivo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 import logicaProgramacion.Tablero;
 import logicaProgramacion.Robot;
 
@@ -37,6 +38,19 @@ public class ManejadorArchivo {
 			
 		} catch (Exception e) {
 			System.out.println("Ha ocurrido un error: "+ e);
+		}
+	}
+	
+	public void escribirArchivo(int posicionX, int posicionY) {
+		try {
+			FileWriter archivoSalida = new FileWriter("C:\\Users\\danie\\OneDrive\\Escritorio\\robot.out");
+			BufferedWriter bw = new BufferedWriter(archivoSalida);
+			
+			bw.write(posicionX + " " + posicionY);
+			
+			bw.close();
+		} catch (Exception e) {
+			System.out.println("Ha ocurrido el siguiente error: " + e);
 		}
 	}
 	
